@@ -40,15 +40,21 @@ var score = 0;
 var pressed = function (event) {};
 
 $("body").keypress(function(event) {
-  $("#code").html(event.which);
   pressed(event);
 });
 
+function show_score() {
+  $("#code").html('Your score is ' + score.toString());
+}
+
 function game_over() {
   $("#code").html('Game over, your score is ' + score.toString());
+  $("#start").prop("disabled", false);
+  $("#start").html("Restart game");
 }
 
 function one_round () {
+  $("#start").prop("disabled", true);
   var keys = Object.keys(map);
   var key = keys[Math.floor(keys.length * Math.random())];
   audio[key].play();
@@ -56,6 +62,7 @@ function one_round () {
     pressed = function (event) {};
     score = score - 1;
     nope.play();
+    show_score();
     if (delay > minDelay) {
       window.setTimeout(one_round, 1500);
     } else {
@@ -72,6 +79,7 @@ function one_round () {
       score = score - 2;
       nope.play();
     }
+    show_score();
     pressed = function (event) {};
     if (delay > minDelay) {
       window.setTimeout(one_round, 1500);

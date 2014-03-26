@@ -7,12 +7,26 @@
 
 <body>
 <script src="game.js" type="text/javascript"></script>
+<h1>Guess that key!</h1>
+<p>If you have ever used a screen reader with speech synthesis in multiple
+   languages, you likely know the ugly bug that usually, key labels and certain
+   user interface elements are not translated to the current synthesizer
+   language.  We've made a game out of this to demonstrate that it is actually
+   hilarious behaviour to implement in the 21st century.</p>
+<p>You are a german screen reader user having temporarily switched to an english
+   voice.  Can you guess what is actually being said?</p>
 <p>A keyboard is (currently) required to play this game.</p>
 <p>If you are using a screen reader, make sure to turn virtual mode off such that
    simple keypresses are not interpreted by your screen reader.<p>
 <p>If you hear a key name, press it as fast as possible.</p>
-<button id="start" value="Start game" onclick="one_round();"></button>
+<p>If you react in time, you win a point, if not, you loose one.  If your guess
+   was incorrect, you loose two points.  With every round, timeout will be shorter.</p>
+<button id="start" name="Start game" onclick="one_round();">Start game</button>
 <div id="code">
 </div>
+<footer>
+<p>Code: <a href="mailto:mario@blind.guru">Mario Lang</a> and Simon Kainz,
+   voice: <a href="mailto:angela@blind.guru">Angela Engel</a>.</p>
+</footer>
 </body>
 </html>
