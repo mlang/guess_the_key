@@ -32,12 +32,11 @@ audio['yay'].src = 'sounds/' + 'Yay' + '.mp3';
 audio['nope'] = new Audio();
 audio['nope'].src = 'sounds/' + 'Nope' + '.mp3';
 
+var pressed = function (event) {};
+
 $("body").keypress(function(event) {
   $("#code").html(event.which);
-
-  if (audio[event.which]) {
-    audio[event.which].play();
-  } 
+  pressed(event);
 });
 
 window.setTimeout(one_round, 5000);
@@ -45,13 +44,14 @@ window.setTimeout(one_round, 5000);
 function one_round () {
   var key = 13;
   audio[key].play();
-  $("body").keypress(function(event) {
+  pressed = function(event) {
     if (event.which == key) {
       audio['yay'].play();
     } else {
       audio['nope'].play();
     }
-  });
+    window.setTimout(one_round, 3000);
+  };
   window.setTimeout(function () {
     audio['nope'].play();
     window.setTimout(one_round, 3000);
