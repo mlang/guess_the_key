@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang=en>
 <head>
+<title>Guess that key!</title>
 <script src="http://code.jquery.com/jquery-2.1.0.min.js" type="text/javascript"></script>
 </head>
 
 <body>
-<p>If you are using a screen reader, make sure to turn virutal mode off such that
+<script src="game.js" type="text/javascript"></script>
+<p>A keyboard is (currently) required to play this game.</p>
+<p>If you are using a screen reader, make sure to turn virtual mode off such that
    simple keypresses are not interpreted by your screen reader.<p>
-<p>Just press some keys on your keyboard!</p>
+<p>If you hear a key name, press it as fast as possible.</p>
+<button id="start" value="Start game" onclick="one_round();"></button>
 <div id="code">
 </div>
-<script src="game.js" type="text/javascript"></script>
 </body>
 </html>

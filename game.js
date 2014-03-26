@@ -44,8 +44,6 @@ $("body").keypress(function(event) {
   pressed(event);
 });
 
-window.setTimeout(one_round, 5000);
-
 function game_over() {
   $("#code").html('Game over, your score is ' + score.toString());
 }
