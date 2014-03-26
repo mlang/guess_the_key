@@ -27,6 +27,10 @@ for (var key in map) {
   audio[key] = new Audio();
   audio[key].src = 'sounds/' + map[key] + '.mp3';
 }
+audio['yay'] = new Audio();
+audio['yay'].src = 'sounds/' + 'Yayy' + '.mp3';
+audio['nope'] = new Audio();
+audio['nope'].src = 'sounds/' + 'Nope' + '.mp3';
 
 $("body").keypress(function(event) {
   $("#code").html(event.which);
@@ -35,4 +39,6 @@ $("body").keypress(function(event) {
     audio[event.which].play();
   } 
 });
+
+window.setTimeout(function () { audio['yay'].play(); }, 5000);
 

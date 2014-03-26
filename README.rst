@@ -32,6 +32,9 @@ keyboard is correct.
 The game
 --------
 
+The game is played from the perspective of a german speech user just
+having switched to english temporarily to read a website.
+
 Once you hear the name of a key, press it as fast as possible.
 If you guessed it correctly, you will earn points.
 If you didn't, you will loose points.
@@ -47,6 +50,6 @@ This also demonstrates the main point of this experiment.
 This bug is so omnipresent that people actually *learn* the
 wrong pronounciations by heart.  This game will continue to provide
 the fun factor of hearing these sounds, but the wrong pronounciations
-themselves in screen readers have to go!  We are in 21st century damnit!
+themselves in screen readers need to go!  We are in 21st century after all!
 
 
