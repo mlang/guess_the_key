@@ -22,13 +22,6 @@ translating the messages in question into the correct language.
 Note that this is only true for labels of keys and certain
 user interface elements.
 
-Current functionality
----------------------
-
-To start, we have just bound all the keys we have sound files for,
-so you can hear the sounds and check if the mapping on your
-keyboard is correct.
-
 The game
 --------
 

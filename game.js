@@ -27,10 +27,15 @@ for (var key in map) {
   audio[key] = new Audio();
   audio[key].src = 'sounds/' + map[key] + '.mp3';
 }
-audio['yay'] = new Audio();
-audio['yay'].src = 'sounds/' + 'Yay' + '.mp3';
-audio['nope'] = new Audio();
-audio['nope'].src = 'sounds/' + 'Nope' + '.mp3';
+var yay = new Audio();
+yay.src = 'sounds/' + 'Yay' + '.mp3';
+var nope = new Audio();
+nope.src = 'sounds/' + 'Nope' + '.mp3';
+
+var delay = 6000;
+var delayDecrement = 100;
+var minDelay = 1000;
+var score = 0;
 
 var pressed = function (event) {};
 
@@ -41,20 +46,40 @@ $("body").keypress(function(event) {
 
 window.setTimeout(one_round, 5000);
 
+function game_over() {
+  $("#code").html('Game over, your score is ' + score.toString());
+}
+
 function one_round () {
-  var key = 13;
+  var keys = Object.keys(map);
+  var key = keys[Math.floor(keys.length * Math.random())];
   audio[key].play();
-  pressed = function(event) {
-    if (event.which == key) {
-      audio['yay'].play();
+  var timeout = window.setTimeout(function () {
+    pressed = function (event) {};
+    score = score - 1;
+    nope.play();
+    if (delay > minDelay) {
+      window.setTimeout(one_round, 1500);
     } else {
-      audio['nope'].play();
+      game_over();
     }
-    window.setTimout(one_round, 3000);
+  }, delay);
+  delay = delay - delayDecrement;
+  pressed = function(event) {
+    window.clearTimeout(timeout);
+    if (event.which == key) {
+      score = score + 1;
+      yay.play();
+    } else {
+      score = score - 2;
+      nope.play();
+    }
+    pressed = function (event) {};
+    if (delay > minDelay) {
+      window.setTimeout(one_round, 1500);
+    } else {
+      game_over();
+    }
   };
-  window.setTimeout(function () {
-    audio['nope'].play();
-    window.setTimout(one_round, 3000);
-  }, 5000);
 }
 
