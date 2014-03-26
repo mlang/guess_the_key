@@ -40,5 +40,21 @@ $("body").keypress(function(event) {
   } 
 });
 
-window.setTimeout(function () { audio['yay'].play(); }, 5000);
+window.setTimeout(one_round, 5000);
+
+function one_round () {
+  var key = 13;
+  audio[key].play();
+  $("body").keypress(function(event) {
+    if (event.which == key) {
+      audio['yay'].play();
+    } else {
+      audio['nope'].play();
+    }
+  });
+  window.setTimeout(function () {
+    audio['nope'].play();
+    window.setTimout(one_round, 3000);
+  }, 5000);
+}
 
